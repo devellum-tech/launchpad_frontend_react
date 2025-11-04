@@ -2,8 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
     push:
-        branches:
-            - main
+        branches: [main]
     workflow_dispatch:
 
 permissions:
@@ -11,19 +10,17 @@ permissions:
     pages: write
     id-token: write
 
-concurrency:
-    group: "pages"
-    cancel-in-progress: false
-
 jobs:
-    build:
-        name: Build
+    deploy:
         runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
         steps:
-            - name: Checkout repository
+            - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
+            - name: Setup Node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
@@ -34,22 +31,15 @@ jobs:
 
             - name: Build project
               run: npm run build
-              env:
-                  VITE_BASE_URL: "/launchpad_frontend_react"
 
-            - name: Upload build output
+            - name: Setup GitHub Pages
+              uses: actions/configure-pages@v4
+
+            - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
                   path: dist
 
-    deploy:
-        name: Deploy
-        needs: build
-        runs-on: ubuntu-latest
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        steps:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
