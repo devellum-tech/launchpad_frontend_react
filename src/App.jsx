@@ -15,20 +15,20 @@ import "../src/styles/Home.module.css"
 
 function App() {
   const baseUrl = import.meta.env.VITE_BASE_URL || '';
-  
+
   return (
     <>
       <Navbar />
       <div style={{ padding: "40px" }}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-        </Routes>
-      </div>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/thank-you" element={<ThankYou />} />
+      </Routes>
+    </div >
       <Footer />
     </>
   )

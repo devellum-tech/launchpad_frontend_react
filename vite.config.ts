@@ -5,7 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: './',
+    base: '/launchpad_frontend_react/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -16,13 +16,11 @@ export default defineConfig({
     },
     build: {
         outDir: 'dist',
-        assetsDir: '',
         emptyOutDir: true,
+        sourcemap: true,
         rollupOptions: {
             output: {
-                entryFileNames: `[name].[hash].js`,
-                chunkFileNames: `[name].[hash].js`,
-                assetFileNames: `[name].[hash].[ext]`
+                manualChunks: undefined
             }
         }
     },
