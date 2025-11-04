@@ -88,16 +88,16 @@ const Footer = () => {
             </Typography>
             <Stack direction="row" spacing={1}>
               {[
-                {
-                  name: 'Facebook',
-                  link: 'https://www.linkedin.com/company/devellum/',
-                  icon: Facebook,
-                },
-                {
-                  name: 'Twitter',
-                  link: 'https://www.linkedin.com/company/devellum/',
-                  icon: Twitter,
-                },
+                // {
+                //   name: 'Facebook',
+                //   link: 'https://www.linkedin.com/company/devellum/',
+                //   icon: Facebook,
+                // },
+                // {
+                //   name: 'Twitter',
+                //   link: 'https://www.linkedin.com/company/devellum/',
+                //   icon: Twitter,
+                // },
                 {
                   name: 'LinkedIn',
                   link: 'https://www.linkedin.com/company/devellum/',
@@ -105,7 +105,7 @@ const Footer = () => {
                 },
                 {
                   name: 'Instagram',
-                  link: 'https://www.linkedin.com/company/devellum/',
+                  link: 'https://www.instagram.com/devellum.tech?igsh=ZDRveGlhemh3cm55',
                   icon: Instagram,
                 },
               ].map((obj, i) => (
