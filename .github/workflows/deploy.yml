@@ -22,6 +22,8 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
@@ -29,29 +31,15 @@ jobs:
                   node-version: "20"
                   cache: "npm"
 
-            - name: Setup Pages
-              id: pages
-              uses: actions/configure-pages@v4
-
             - name: Install dependencies
               run: |
                   npm install
-
-            - name: Install additional dependencies
-              run: |
-                  npm install --save-dev @vitejs/plugin-react-swc
-                  npm install --save-dev gh-pages
-                  npm install --save-dev sass
+                  npm install --save-dev @vitejs/plugin-react-swc gh-pages
                   npm install react-router-dom@latest
 
-            - name: Update package.json
+            - name: Update base URL
               run: |
-                  node -e "
-                    const fs = require('fs');
-                    const pkg = JSON.parse(fs.readFileSync('package.json'));
-                    pkg.homepage = 'https://devellum-tech.github.io/launchpad_frontend_react';
-                    fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
-                  "
+                  echo "VITE_BASE_URL=/launchpad_frontend_react" >> .env
 
             - name: Build
               run: |

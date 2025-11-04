@@ -14,10 +14,12 @@ import Footer from './components/Footer'
 import "../src/styles/Home.module.css"
 
 function App() {
+  const baseUrl = import.meta.env.VITE_BASE_URL || '';
+  
   return (
     <>
       <Navbar />
-      <div style={{ padding: "40px" }}>
+      <div style={{ padding: "40px" }}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
