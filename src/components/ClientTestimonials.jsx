@@ -6,46 +6,39 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    company: 'BrightPath Solutions',
+    name: 'Hungama Digital Media Entertainment',
+    company: '',
     feedback:
       'Working with this team was a game-changer! They delivered our project ahead of schedule, with flawless execution and clear communication at every step.',
-    avatar: 'https://i.pravatar.cc/150?img=47',
+    avatar: 'https://bb-media.com/wp-content/uploads/2024/06/RFz03osd5kgWv7lDKiuIIuMHDFhZ6GkEzz5DiuckJH15t-NvphBoYo70WgnHXKPbrlM.png',
   },
   {
-    name: 'Rajesh Kumar',
-    company: 'TechNova Labs',
+    name: 'NeoSoft Technologies',
+    company: '',
     feedback:
       'Professional, transparent, and highly skilled. Their development process was well-documented, and the results exceeded our expectations.',
-    avatar: 'https://i.pravatar.cc/150?img=15',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ciBMmbrQ54G0iZ41uzzZoaS6KVeJ1BOtAQ&s',
   },
   {
-    name: 'Emily Carter',
-    company: 'Skyline Ventures',
+    name: 'HSMotions',
+    company: '',
     feedback:
       'They transformed our idea into a robust, scalable solution — on time and within budget. Exceptional work ethic and attention to detail.',
-    avatar: 'https://i.pravatar.cc/150?img=32',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShIh2jhGkcEpwseDktPGFapK9VwLC_lc8Trw&s',
   },
   {
-    name: 'Amit Sharma',
-    company: 'InnoTech Global',
+    name: 'Vernost',
+    company: '',
     feedback:
       'The level of professionalism and technical expertise is unmatched. We always felt in control of our project with regular progress updates.',
-    avatar: 'https://i.pravatar.cc/150?img=8',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4D0BAQFVUIV81HTmVg/company-logo_200_200/company-logo_200_200/0/1719578735454/vernostmarketingtechnologysolutions_logo?e=2147483647&v=beta&t=eMJkCtCMjeCKeZaBOH_-OblhQdkRTih7-HmrNEkuQq0',
   },
-  {
-    name: 'Priya Verma',
-    company: 'NextWave Analytics',
+    {
+    name: 'GMinsights',
+    company: '',
     feedback:
-      'Their team not only delivered on time but also provided valuable insights that improved our product significantly. True partners in our success!',
-    avatar: 'https://i.pravatar.cc/150?img=36',
-  },
-  {
-    name: 'Michael Anderson',
-    company: 'Vertex Innovations',
-    feedback:
-      'From day one, they impressed us with their planning, execution, and transparency. The end result was beyond our expectations — we’re already planning our next project with them.',
-    avatar: 'https://i.pravatar.cc/150?img=56',
+      'Devellum excels at keeping projects transparent and well-managed. Highly recommended for anyone seeking reliable IT partners',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4D0BAQE3S6nG4gNEMg/company-logo_200_200/company-logo_200_200/0/1686216022861/global_market_insights_inc_logo?e=2147483647&v=beta&t=o-sfaPYlOS_xAYgjMklJyfIPYvKIdolmZpfDArGG-Oc',
   },
 ];
 
@@ -142,7 +135,7 @@ const ClientTestimonials = () => {
                 <Avatar
                   src={t.avatar}
                   alt={t.name}
-                  sx={{ width: 70, height: 70, mb: 2 }}
+                  sx={{ width: 90, height: 90, border: '1px solid #000000ff' }}
                 />
                 <Typography
                   variant="body1"
