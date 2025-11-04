@@ -53,7 +53,7 @@ const Navbar = () => {
                                 }}
                             >
                                 <img
-                                    src="/logo.png"
+                                    src="./logo.png"
                                     alt="Devellum Logo"
                                     width={30}
                                     height={30}
