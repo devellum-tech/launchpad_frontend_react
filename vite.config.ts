@@ -5,7 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: '/launchpad_frontend_react/', // Replace with your repository name
+    base: '/launchpad_frontend_react/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -14,4 +14,17 @@ export default defineConfig({
     optimizeDeps: {
         include: ['@emotion/react', '@emotion/styled'],
     },
+    build: {
+        outDir: 'dist',
+        assetsDir: 'assets',
+        emptyOutDir: true,
+        rollupOptions: {
+            output: {
+                entryFileNames: `assets/[name]-[hash].js`,
+                chunkFileNames: `assets/[name]-[hash].js`,
+                assetFileNames: `assets/[name]-[hash].[ext]`
+            }
+        }
+    },
+    publicDir: 'public'
 })
