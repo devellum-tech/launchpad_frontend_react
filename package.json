@@ -3,12 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://devellum-tech.github.io/launchpad_frontend_react",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -22,7 +25,7 @@
     "nprogress": "^0.2.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-router-dom": "^7.9.4",
+    "react-router-dom": "^7.9.5",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
     "yup": "^1.7.0"
@@ -36,14 +39,17 @@
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
     "@vitejs/plugin-react": "^5.0.4",
+    "@vitejs/plugin-react-swc": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
+    "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
     "prettier": "^3.6.2",
+    "sass": "^1.93.3",
     "typescript": "^5.9.3",
     "vite": "^7.1.7"
   }

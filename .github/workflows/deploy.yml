@@ -10,6 +10,7 @@ permissions:
     contents: write
     pages: write
     id-token: write
+    deployments: write
 
 jobs:
     build-and-deploy:
@@ -28,19 +29,36 @@ jobs:
                   node-version: "20"
                   cache: "npm"
 
+            - name: Setup Pages
+              id: pages
+              uses: actions/configure-pages@v4
+
             - name: Install dependencies
               run: |
                   npm install
-                  npm ci
+
+            - name: Install additional dependencies
+              run: |
+                  npm install --save-dev @vitejs/plugin-react-swc
+                  npm install --save-dev gh-pages
+                  npm install --save-dev sass
+                  npm install react-router-dom@latest
+
+            - name: Update package.json
+              run: |
+                  node -e "
+                    const fs = require('fs');
+                    const pkg = JSON.parse(fs.readFileSync('package.json'));
+                    pkg.homepage = 'https://devellum-tech.github.io/launchpad_frontend_react';
+                    fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+                  "
 
             - name: Build
               run: |
                   npm run build
               env:
                   NODE_ENV: production
-
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
+                  VITE_BASE_URL: ${{ steps.pages.outputs.base_url }}
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
@@ -48,5 +66,9 @@ jobs:
                   path: dist
 
             - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
               id: deployment
               uses: actions/deploy-pages@v4
